@@ -26,6 +26,12 @@ PrintArray(array1);
 WriteLine();
 Write("Финальный массив -> ");
 PrintArray(array2);
+WriteLine();
+WriteLine();
+PrintArray(array1);
+Write(" -> ");
+PrintArray(array2);
+
 
 // запрашиваем у пользователя ввод строки 
 string Prompt(string message)
@@ -69,4 +75,11 @@ string[] GetElementBelowN(string[] array)
         }
     }
     return result;
+}
+
+// Печатаем массив  
+void PrintArray(string[] array)
+{
+    // Write("[\"" + string.Join("\", \"", array) + "\"]");
+    Write("[" + string.Join(" ", array) + "]");
 }
