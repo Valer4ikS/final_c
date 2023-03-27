@@ -16,11 +16,7 @@ if (N < 1)
     WriteLine("Кол-во элементов должно быть больше нуля!");
     return;
 }
-// if (minM < 1)
-// {
-//     WriteLine("Минимальное кол-во символов в элементах массива должно быть больше 1!");
-//     return;
-// }
+
 
 string[] array1 = GetArray(N);
 string[] array2 = GetElementN(array1);
@@ -31,11 +27,31 @@ WriteLine();
 Write("Финальный массив -> ");
 PrintArray(array2);
 
-
 // запрашиваем у пользователя ввод строки 
 string Prompt(string message)
 {
     Write(message);
     String value = ReadLine()!;
     return value;
+}
+
+// вводим определенный элемент массива
+string[] GetElement(int n)
+{
+    string[] result = new string[n];
+    for (int i = 0; i < n; i++)
+    {
+        result[i] = Prompt($"Введите {i + 1} элемент массива: ");
+    }
+    return result;
+}
+// считаем кол-во элементов с длиной <= minM символов
+int GetCountBelowN(string[] array)
+{
+    int count = 0;
+    foreach (var item in array)
+    {
+        if (item.Length <= minM) count++;
+    }
+    return count;
 }
