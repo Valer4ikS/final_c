@@ -18,8 +18,8 @@ if (N < 1)
 }
 
 
-string[] array1 = GetArray(N);
-string[] array2 = GetElementN(array1);
+string[] array1 = GetElement(N);
+string[] array2 = GetElementBelowN(array1);
 
 Write("Исходный массив -> ");
 PrintArray(array1);
@@ -54,4 +54,19 @@ int GetCountBelowN(string[] array)
         if (item.Length <= minM) count++;
     }
     return count;
+}
+
+// возвращаем массив элементов с длиной <= minM кол-вом символов из массива array
+string[] GetElementBelowN(string[] array)
+{
+    string[] result = new string[GetCountBelowN(array)];
+    int i = 0;
+    foreach (var el in array)
+    {
+        if (el.Length <= minM)
+        {
+            result[i++] = el;
+        }
+    }
+    return result;
 }
